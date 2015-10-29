@@ -1,3 +1,14 @@
-<h2 id="title">Welcome to Ember</h2>
+{{!-- abstract this into component --}}
+<nav>
+    <ul>
+        <li>
+          {{#link-to 'index'}}Index{{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'posts'}}Posts{{/link-to}}
+        </li>
+    </ul>
+
+</nav>
 
 {{outlet}}

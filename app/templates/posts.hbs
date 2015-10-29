@@ -1,0 +1,17 @@
+<section>
+
+{{outlet}}
+
+    <h1>posts list</h1>
+  <ul>
+  {{#each model as |post|}}
+      <li>
+          <div>{{post.title}}</div>
+          <div>{{post.body}}</div>
+
+          {{#link-to 'post' post}}view post{{/link-to}}
+          <button {{action "deletePost" post}}>delete</button>
+      </li>
+  {{/each}}
+  </ul>
+</section>
