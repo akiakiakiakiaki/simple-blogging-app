@@ -1,4 +1,15 @@
-{{!-- abstract this into component --}}
+{{#if session.isAuthenticated}}
+
+    <img src="{{session.currentUser.profileImageURL}}" width="100" height="100"/>
+    <p>
+        Logged in as {{session.currentUser.displayName}}
+    </p>
+
+    <button {{action "signOut"}}>Sign out</button>
+{{else}}
+    <button {{action "signIn" "google"}}>Sign in with Google</button>
+{{/if}}
+
 <nav>
     <ul>
         <li>
@@ -8,7 +19,6 @@
           {{#link-to 'posts'}}Posts{{/link-to}}
         </li>
     </ul>
-
 </nav>
 
 {{outlet}}
