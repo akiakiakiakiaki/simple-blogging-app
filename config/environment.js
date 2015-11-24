@@ -7,7 +7,8 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: {
       'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
-      'img-src': "'self' *.google.com *.googleusercontent.com"
+      'script-src': "'self' *.firebaseio.com",
+      'img-src': "'self' *.google.com *.googleusercontent.com *.gravatar.com *.tumblr.com data:"
     },
     firebase: 'https://akitest.firebaseio.com/',
     torii: {

@@ -6,7 +6,6 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-
   //this.route('index', {path: '/'});
 
   this.route('posts', function() {
@@ -15,6 +14,7 @@ Router.map(function() {
 
   this.route('post',  {path: '/post/:post_id'});
 
+  this.route('images');
 });
 
 export default Router;

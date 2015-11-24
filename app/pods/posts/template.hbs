@@ -8,7 +8,18 @@
       <li>
           <div>{{post.title}}</div>
           <div>{{post.body}}</div>
+          {{#if post.images}}
+            <div>Images:</div>
+            <ul>
 
+            {{#each post.images as |image|}}
+              <li>
+                  <div>{{image.fileName}}</div>
+                  <img src="{{image.fileData}}" width="200"/>
+              </li>
+            {{/each}}
+            </ul>
+          {{/if}}
           {{#link-to 'post' post}}view post{{/link-to}}
           <button {{action "deletePost" post}}>delete</button>
       </li>

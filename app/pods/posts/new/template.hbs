@@ -7,8 +7,24 @@
       {{textarea value=body placeholder="Body"}}
     </li>
     <li>
-        <button {{action "publishPost"}}>Publish</button>
+        {{img-upload files=files}}
+        <ul>
+          {{#each files as |file|}}
+            <li>
+            {{image-preview file=file onLoadImage=(action 'addImage')}}
+            </li>
+          {{/each}}
+        </ul>
     </li>
+    <li>
+        {{#if imagesSaving}}
+            <div>saving images to server...</div>
+            <button disabled>Publish</button>
+        {{else}}
+            <button {{action "publishPost"}}>Publish</button>
+        {{/if}}
+    </li>
+
 </ul>
 
 {{#link-to 'posts'}}Quit add new Post{{/link-to}}
