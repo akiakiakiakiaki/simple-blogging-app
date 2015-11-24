@@ -5,7 +5,11 @@ module.exports = function(environment) {
     modulePrefix: 'test-app',
     podModulePrefix: 'test-app/pods',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'script-src': "'self' *.firebaseio.com",
+      'img-src': "'self' *.google.com *.googleusercontent.com *.gravatar.com *.tumblr.com data:"
+    },
     firebase: 'https://akitest.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'

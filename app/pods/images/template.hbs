@@ -1,0 +1,19 @@
+<ul>
+  {{#each model as |image|}}
+    <li>
+        <div>
+            <div>{{image.fileName}}</div>
+            <img src="{{image.fileData}}" width="200">
+            {{#if image.post.title}}
+              <div>{{image.post.title}}</div>
+            {{else}}
+              <div class="warning">does not belong to any post</div>
+            {{/if}}
+
+        </div>
+    </li>
+  {{/each}}
+</ul>
+
+
+{{outlet}}
