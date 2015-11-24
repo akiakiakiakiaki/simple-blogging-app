@@ -3,6 +3,11 @@
 <h2>{{model.title}}</h2>
 <p>{{model.body}}</p>
 
+{{#each model.images as |image|}}
+  <p>{{image.fileName}}</p>
+  <img src="{{image.fileData}}"/>
+{{/each}}
+
 {{#link-to 'posts'}}Return to Posts overview{{/link-to}}
 
 {{outlet}}

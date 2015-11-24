@@ -7,7 +7,11 @@
 
     <button {{action "signOut"}}>Sign out</button>
 {{else}}
-    <button {{action "signIn" "google"}}>Sign in with Google</button>
+  {{input type="text" value=user}}
+  {{input type="password" value=password}}
+  <button {{action "signInPw" user password}}>sign in</button>
+  <p>or</p>
+  <button {{action "signIn" "google"}}>Sign in with Google</button>
 {{/if}}
 
 <nav>
@@ -18,7 +22,11 @@
         <li>
           {{#link-to 'posts'}}Posts{{/link-to}}
         </li>
+        <li>
+          {{#link-to 'images'}}Images{{/link-to}}
+        </li>
     </ul>
 </nav>
 
 {{outlet}}
+
