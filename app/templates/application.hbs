@@ -1,16 +1,20 @@
+{{!-- TODO: make component --}}
 {{#if session.isAuthenticated}}
 
-    <img src="{{session.currentUser.profileImageURL}}" width="100" height="100"/>
+    <img src="{{session.currentUser.picture}}" width="100" height="100"/>
     <p>
-        Logged in as {{session.currentUser.displayName}}
+        Logged in as {{session.currentUser.name}} {{#if (eq session.currentUser.role.id '0')}} ({{session.currentUser.role.name}}){{/if}}
     </p>
 
     <button {{action "signOut"}}>Sign out</button>
 {{else}}
+
+  {{!--
   {{input type="text" value=user}}
   {{input type="password" value=password}}
   <button {{action "signInPw" user password}}>sign in</button>
   <p>or</p>
+  --}}
   <button {{action "signIn" "google"}}>Sign in with Google</button>
 {{/if}}
 
@@ -22,9 +26,17 @@
         <li>
           {{#link-to 'posts'}}Posts{{/link-to}}
         </li>
-        <li>
-          {{#link-to 'images'}}Images{{/link-to}}
-        </li>
+
+
+        {{#if (is-admin session.currentUser)}}
+            <li>
+              {{#link-to 'images'}}Images{{/link-to}}
+            </li>
+            <li>
+              {{#link-to 'users'}}Users{{/link-to}}
+            </li>
+        {{/if}}
+
     </ul>
 </nav>
 

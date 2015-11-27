@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('post',  {path: '/post/:post_id'});
 
   this.route('images');
+  this.route('users');
 });
 
 export default Router;

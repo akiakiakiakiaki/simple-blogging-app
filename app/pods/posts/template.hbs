@@ -21,7 +21,9 @@
             </ul>
           {{/if}}
           {{#link-to 'post' post}}view post{{/link-to}}
-          <button {{action "deletePost" post}}>delete</button>
+          {{#if (is-admin session.currentUser)}}
+            <button {{action "deletePost" post}}>delete</button>
+          {{/if}}
       </li>
   {{/each}}
   </ul>
