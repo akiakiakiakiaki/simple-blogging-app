@@ -62,8 +62,8 @@ export default Ember.Controller.extend({
     addImage(data, file) {
 
       let newImage = this.store.createRecord('image', {
-        fileName: file.name,
-        fileData: data,
+        file_name: file.name,
+        url: data,
         post: this.get('post'),
       });
 
@@ -84,6 +84,7 @@ export default Ember.Controller.extend({
           title: this.get('title'),
           body: this.get('body'),
           images: this.get('images'),
+          user: this.get('session.currentUser'),
           timestamp: new Date().getTime(),
         })
       );

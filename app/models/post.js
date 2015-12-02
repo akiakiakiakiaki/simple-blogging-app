@@ -5,4 +5,5 @@ export default DS.Model.extend({
   body: DS.attr('string'),
   timestamp: DS.attr('number'),
   images: DS.hasMany('image', {async: true}),
+  user: DS.belongsTo('user', {async: true}),
 });

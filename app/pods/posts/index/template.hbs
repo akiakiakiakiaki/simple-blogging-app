@@ -1,3 +1,4 @@
-{{#link-to 'posts.new'}}Add a new Post{{/link-to}}
-
+{{#if (is-admin session.currentUser)}}
+  {{#link-to 'posts.new'}}Add a new Post{{/link-to}}
+{{/if}}
 {{outlet}}

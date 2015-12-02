@@ -1,0 +1,37 @@
+{{yield}}
+
+<div class="photo-modal__thumbnail-container">
+  {{#each indexedImages as |image|}}
+    {{photo-modal/photo-modal-thumbnail image=image.item action='onShowModal'}}
+  {{/each}}
+</div>
+
+<div class="photo-modal__modal-container" {{action 'onCloseModal'}}>
+  <div class="photo-modal__image-container">
+    {{#each indexedImages as |image|}}
+      {{image.index}}
+      {{photo-modal/photo-modal-image index=image.index image=image.item actualImage=actualImage action='onShowNextImage'}}
+
+    {{/each}}
+  </div>
+
+  <div class="photo-modal__navigation">
+    {{#photo-modal/photo-modal-navigation identifier='close' visible=true action='onCloseModal'}}
+        <svg width="30" height="30">
+            <image xlink:href="img/image-modal/close.svg" src="img/image-modal/close.png" width="30" height="30"/>
+        </svg>
+    {{/photo-modal/photo-modal-navigation}}
+
+    {{#photo-modal/photo-modal-navigation identifier='previous' visible=showPreviousToggle action='onShowPreviousImage'}}
+        <svg width="30" height="30">
+            <image xlink:href="img/image-modal/previous.svg" src="img/image-modal/previous.png" width="30" height="30"/>
+        </svg>
+    {{/photo-modal/photo-modal-navigation}}
+
+    {{#photo-modal/photo-modal-navigation identifier='next' visible=showNextToggle action='onShowNextImage'}}
+        <svg width="30" height="30">
+            <image xlink:href="img/image-modal/next.svg" src="img/image-modal/next.png" width="30" height="30"/>
+        </svg>
+    {{/photo-modal/photo-modal-navigation}}
+  </div>
+</div>
